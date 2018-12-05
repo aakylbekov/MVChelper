@@ -1,0 +1,41 @@
+﻿@using MVChelper.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@model MVChelper.Controllers.TypeNames 
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
+        {
+            @Html.Hidden("MyId","54354135")
+            <div class="form-group">
+                <div class="form-group">
+                    @Html.Label("Comments", new { @class = "control-label" })
+                    <div>
+                        @Html.DropDownList("TypeComment", (SelectList)ViewBag.CommentType)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Kommentarioums", new {@class ="control-label"}) 
+                        <div>
+                            @Html.TextBoxFor(t=>Model.CommnentText, new { @class = "form-control", @style="" })
+
+                            @*<input type="text" class="form-control" name="commentText" />*@
+                        </div>
+                    </div>
+                      
+                    </div>
+                    <br />
+                    <button name="action" value="save">SAVE</button>
+                    <button name="action" value="send">SEND</button>
+                </div>
+
+        }
+        @Html.EventListOurCity(new string[] { "ADKK", "LKAN", "ADK" })
+
+    </div>
+</div>
+
+
+ 
